@@ -55,12 +55,4 @@ public class UserDto {
         String name;
     }
 
-
-    /////////
-
-    @Getter
-    public static class FriendAddRequestDto {
-        String id;
-    }
-
 }
