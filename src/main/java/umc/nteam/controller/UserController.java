@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import umc.nteam.dto.SuccessDto;
 import umc.nteam.dto.UserDto;
-import umc.nteam.auth.AuthUser;
 import umc.nteam.auth.JwtProvider;
-import umc.nteam.domain.User;
+import umc.nteam.dto.UserDto.LoginSuccessDto;
 
 @Slf4j
 @RestController
@@ -28,7 +27,8 @@ public class UserController {
     @PostMapping("/auth/login")
     public ResponseEntity<UserDto.LoginSuccessDto> loginUser(@RequestBody UserDto.UserLoginRequestDto userLoginRequestDto) {
         String token = jwtProvider.createToken(0L);
-        return ResponseEntity.ok(token);
+        LoginSuccessDto loginSuccessDto = LoginSuccessDto.builder().token(token).build();
+        return ResponseEntity.ok(loginSuccessDto);
     }
 
 
