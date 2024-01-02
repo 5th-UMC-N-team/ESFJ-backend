@@ -13,6 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @RequiredArgsConstructor
 public class AccessTokenFilter extends OncePerRequestFilter {
@@ -35,7 +36,7 @@ public class AccessTokenFilter extends OncePerRequestFilter {
         try {
             Claims claims = jwtProvider.parseJwtToken(token);
             Long userId = Integer.toUnsignedLong((Integer) claims.get("userId"));
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userId, ""));
+            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userId, "", new ArrayList<>()));
         } catch (Exception e) {
             throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN,
