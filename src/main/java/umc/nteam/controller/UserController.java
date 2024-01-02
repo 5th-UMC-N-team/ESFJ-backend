@@ -29,7 +29,7 @@ public class UserController {
         return ResponseEntity.ok(null);
     }
 
-    @DeleteMapping("/users/friend/{friendId}")
+    @DeleteMapping("/users/{friendId}")
     public ResponseEntity showFriendList(@PathVariable Long friendId) {
         return ResponseEntity.ok(null);
     }
