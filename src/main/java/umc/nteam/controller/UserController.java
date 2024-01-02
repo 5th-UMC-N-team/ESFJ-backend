@@ -30,10 +30,6 @@ public class UserController {
         return ResponseEntity.ok(loginSuccessDto);
     }
 
-    @PostMapping("/users/friend")
-    public ResponseEntity<SuccessDto> addFriend(@RequestBody UserDto.FriendAddRequestDto friendAddRequestDto) {
-        return ResponseEntity.ok(null);
-    }
     @GetMapping("/users/friends")
     public ResponseEntity<UserDto.UserCardListDto> showFriendList() {
         return ResponseEntity.ok(null);
