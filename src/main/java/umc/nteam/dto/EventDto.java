@@ -41,6 +41,14 @@ public class EventDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+    public static class MonthlyEventResponseDto {
+        List<EventListDto> eventListDto;
+    }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class EventListDto {
         private Long eventId;
         private LocalDate date;

@@ -40,7 +40,9 @@ public class WishController {
     // 위시 상세 조회 api
     @GetMapping("/{wishId}")
     public ResponseEntity<WishDto.WishGetDetailResponseDto> getWish(@PathVariable Long wishId){
-        return ResponseEntity.ok(null);
+        WishDto.WishGetDetailResponseDto wishGetDetailResponseDto = wishService.getDetail(wishId);
+
+        return ResponseEntity.ok(wishGetDetailResponseDto);
     }
 
     // 위시 삭제 api

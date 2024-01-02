@@ -20,7 +20,6 @@ public class FundService {
     private final FundRepository fundRepository;
     private final MemberFundRepository memberFundRepository;
     private final WishRepository wishRepository;
-    private final WishService wishService;
 
     @Transactional
     public Fund fund(User user, Long wishId, FundDto.FundRequestDto fundRequestDto) {
