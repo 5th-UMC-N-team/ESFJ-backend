@@ -1,10 +1,9 @@
-package umc.nteam.web.dto;
+package umc.nteam.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import umc.nteam.domain.enums.FundStatus;
 import umc.nteam.domain.enums.FundWishStatus;
 
 import java.util.List;

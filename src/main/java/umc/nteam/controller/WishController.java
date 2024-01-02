@@ -1,4 +1,4 @@
-package umc.nteam.web.controller;
+package umc.nteam.controller;
 
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +11,8 @@ import umc.nteam.domain.User;
 import umc.nteam.domain.enums.FundWishStatus;
 import umc.nteam.dto.SuccessDto;
 import umc.nteam.service.WishService;
-import umc.nteam.web.dto.WishDto;
-import umc.nteam.web.dto.WishDto.WishAddRequestDto;
+import umc.nteam.dto.WishDto;
+import umc.nteam.dto.WishDto.WishAddRequestDto;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,10 +60,6 @@ public class WishController {
     }
 
 
-    // 위시 삭제 api
-    @DeleteMapping("/{wishId}")
-    public ResponseEntity<SuccessDto> deleteWish(@PathVariable Long wishId) {
-        return ResponseEntity.ok(null);
       
     // 위시 상세 조회 api
     @GetMapping("/{wishId}")

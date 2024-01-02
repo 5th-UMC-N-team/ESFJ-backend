@@ -4,9 +4,9 @@ import java.io.IOException;
 import org.springframework.web.multipart.MultipartFile;
 import umc.nteam.domain.User;
 import umc.nteam.domain.Wish;
-import umc.nteam.web.dto.WishDto;
+import umc.nteam.dto.WishDto;
 
-import umc.nteam.web.dto.WishDto.WishAddRequestDto;
+import umc.nteam.dto.WishDto.WishAddRequestDto;
 
 public interface WishService {
 
