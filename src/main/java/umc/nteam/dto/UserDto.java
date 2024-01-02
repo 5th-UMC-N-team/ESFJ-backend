@@ -41,11 +41,14 @@ public class UserDto {
     ///////////////
 
     @Getter
+    @AllArgsConstructor
     public static class UserCardListDto {
         List<UserCardDto> userCardDtoList;
     }
 
+    @Builder
     @Getter
+    @AllArgsConstructor
     public static class UserCardDto {
         Long id;
         String profileUrl;
