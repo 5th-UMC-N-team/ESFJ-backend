@@ -8,8 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import umc.nteam.domain.Fund;
 import umc.nteam.domain.User;
 import umc.nteam.domain.Wish;
+import umc.nteam.repository.FundRepository;
 import umc.nteam.repository.UserRepository;
 import umc.nteam.repository.WishRepository;
 import umc.nteam.web.dto.WishDto;
@@ -29,6 +31,8 @@ public class WishServiceImpl implements WishService {
     private final AmazonS3Client amazonS3Client;
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
+    private final FundRepository fundRepository;
+    private final FundService fundService;
 
     // 내 위시리스트 가져오기
     @Override
@@ -134,5 +138,28 @@ public class WishServiceImpl implements WishService {
             // 다른 가격대에 대한 조건 추가 가능
             default -> true;    // 미선택 시 전체 다 보여줌
         };
+    }
+
+    // 위시 모금현황 가져오기
+    @Override
+    public WishDto.WishGetDetailResponseDto getDetail(Long wishId){
+        // 위시 찾기
+        Wish wish = wishRepository.findById(wishId)
+                .orElseThrow(() -> new RuntimeException("해당 id에 해당하는 위시가 없습니다."));
+        // 모금현황 찾기
+        int fundPrice = fundService.getFundSum(wish);
+
+        WishDto.WishGetDetailResponseDto wishGetDetailResponseDto = WishDto.WishGetDetailResponseDto.builder()
+                .wishId(wishId)
+                .name(wish.getName())
+                .price(wish.getPrice())
+                .reason(wish.getReason())
+                .link(wish.getReason())
+                .imageUrl(wish.getImageUrl())
+                .fundPrice(fundPrice)
+                .percentage((float) fundPrice /wish.getPrice() * 100)
+                .build();
+
+        return wishGetDetailResponseDto;
     }
 }

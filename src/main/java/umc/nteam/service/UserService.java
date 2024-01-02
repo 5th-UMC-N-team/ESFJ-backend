@@ -2,6 +2,7 @@ package umc.nteam.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,6 +13,7 @@ import umc.nteam.repository.UserRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -64,5 +66,11 @@ public class UserService {
                 .build();
 
         userRepository.save(user);
+    }
+
+
+    public List<User> showFriendList(User user) {
+        List<User> friendList = user.getFriendList();
+        return friendList;
     }
 }

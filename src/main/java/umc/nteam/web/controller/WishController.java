@@ -59,15 +59,18 @@ public class WishController {
         return ResponseEntity.ok(SuccessDto.builder().isSuccess(true).build());
     }
 
-    // 위시 상세 조회 api
-    @GetMapping("/{wishId}")
-    public ResponseEntity<WishDto.WishGetDetailResponseDto> getWish(@PathVariable Long wishId) {
-        return ResponseEntity.ok(null);
-    }
 
     // 위시 삭제 api
     @DeleteMapping("/{wishId}")
     public ResponseEntity<SuccessDto> deleteWish(@PathVariable Long wishId) {
         return ResponseEntity.ok(null);
+      
+    // 위시 상세 조회 api
+    @GetMapping("/{wishId}")
+    public ResponseEntity<WishDto.WishGetDetailResponseDto> getWish(@PathVariable Long wishId){
+        WishDto.WishGetDetailResponseDto wishGetDetailResponseDto = wishService.getDetail(wishId);
+
+        return ResponseEntity.ok(wishGetDetailResponseDto);
     }
+
 }

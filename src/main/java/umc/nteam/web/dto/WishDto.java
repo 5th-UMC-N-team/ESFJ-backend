@@ -68,6 +68,7 @@ public class WishDto {
         String reason;
         String link;
         String imageUrl;
-        FundStatus fundStatus;  // 모금 선택 여부
+        int fundPrice;  // 현재까지 모인 모긍액
+        float percentage;
     }
 }

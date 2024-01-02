@@ -17,4 +17,6 @@ public interface WishService {
     WishDto.WishGetFriendListResponseDto getFriendList(Long friendId, int priceRange);
 
     Wish createWish(User user, MultipartFile file, WishAddRequestDto requestDto) throws IOException;
+    // 선택한 위시의 모금현황 조회 api
+    WishDto.WishGetDetailResponseDto getDetail(Long wishId);
 }
