@@ -68,10 +68,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void addFriend(UserDto.FriendAddRequestDto friendAddRequestDto) {
-
-    }
-
 
     public List<User> showFriendList(User user) {
         List<User> friendList = user.getFriendList();
