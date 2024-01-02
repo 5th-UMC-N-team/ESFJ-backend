@@ -11,13 +11,13 @@ public class WishController {
 
     // 나의 위시리스트 조회 api
     @GetMapping("")
-    public ResponseEntity getMyWishes(){
+    public ResponseEntity getMyWishes(@RequestParam("price-range") int priceRange){
         return ResponseEntity.ok(null);
     }
 
     // 친구의 위시리스트 조회 api
     @GetMapping("/{friendId}")
-    public ResponseEntity getFriendWishes(@PathVariable Long friendId){
+    public ResponseEntity getFriendWishes(@PathVariable Long friendId, @RequestParam("price-range") int priceRange){
         return ResponseEntity.ok(null);
     }
 
