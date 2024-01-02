@@ -6,7 +6,6 @@ public class FundDto {
 
     @Getter
     public static class FundRequestDto {
-        Long memberId;
         Integer price;
     }
 
