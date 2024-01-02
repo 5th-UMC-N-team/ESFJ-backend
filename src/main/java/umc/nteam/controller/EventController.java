@@ -18,21 +18,7 @@ import java.util.List;
 @RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
-    @PostMapping
-    public ResponseEntity<SuccessDto> createEvent(@RequestBody EventDto.EventCreateDto eventCreateDto) {
-        return ResponseEntity.ok(null);
-    }
-
-    @PostMapping("/{eventId}")
-    public ResponseEntity<SuccessDto> updateEvent(@RequestBody EventDto.EventUpdateDto eventUpdateDto, @PathVariable("eventId") Long eventId) {
-        return ResponseEntity.ok(null);
-    }
-
-    @DeleteMapping("/{eventId}")
-    public ResponseEntity<SuccessDto> deleteEvent(@PathVariable("eventId") Long eventId) {
-        return ResponseEntity.ok(null);
-    }
-
+    
     @GetMapping("/{friendId}")
     public ResponseEntity<EventDto.FriendEventListDto> showFriendEventList(@PathVariable("friendId") Long friendId) {
         List<Event> eventList = eventService.findAllByUserId(friendId);

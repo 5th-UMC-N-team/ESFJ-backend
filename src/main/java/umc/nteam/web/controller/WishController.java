@@ -45,9 +45,4 @@ public class WishController {
         return ResponseEntity.ok(wishGetDetailResponseDto);
     }
 
-    // 위시 삭제 api
-    @DeleteMapping("/{wishId}")
-    public ResponseEntity<SuccessDto> deleteWish(@PathVariable Long wishId){
-        return ResponseEntity.ok(null);
-    }
 }
