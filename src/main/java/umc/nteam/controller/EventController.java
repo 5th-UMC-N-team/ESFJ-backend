@@ -35,7 +35,9 @@ public class EventController {
 
     @GetMapping("/{friendId}")
     public ResponseEntity<EventDto.FriendEventListDto> showFriendEventList(@PathVariable("friendId") Long friendId) {
-        return ResponseEntity.ok(null);
+        List<Event> eventList = eventService.findAllByUserId(friendId);
+        EventDto.FriendEventListDto body = new EventConverter().toFriendEventListDto(friendId, eventList);
+        return ResponseEntity.ok(body);
     }
 
     @GetMapping("/")
