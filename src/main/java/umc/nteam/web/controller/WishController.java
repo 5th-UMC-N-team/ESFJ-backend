@@ -19,14 +19,16 @@ public class WishController {
     // 나의 위시리스트 조회 api
     @GetMapping("")
     public ResponseEntity<WishDto.WishGetMyListResponseDto> getMyWishes(@RequestParam("price-range") int priceRange, @AuthUser User user){
-        WishDto.WishGetMyListResponseDto wishGetMyListResponseDto = wishService.getMyList(user);
+        WishDto.WishGetMyListResponseDto wishGetMyListResponseDto = wishService.getMyList(user, priceRange);
         return ResponseEntity.ok(wishGetMyListResponseDto);
     }
 
     // 친구의 위시리스트 조회 api
-    @GetMapping("/{friendId}")
+    @GetMapping("/friends/{friendId}")
     public ResponseEntity<WishDto.WishGetFriendListResponseDto> getFriendWishes(@PathVariable Long friendId, @RequestParam("price-range") int priceRange){
-        return ResponseEntity.ok(null);
+        WishDto.WishGetFriendListResponseDto wishGetFriendListResponseDto = wishService.getFriendList(friendId, priceRange);
+
+        return ResponseEntity.ok(wishGetFriendListResponseDto);
     }
 
     // 위시 추가 api
