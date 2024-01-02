@@ -19,7 +19,7 @@ public class WishController {
     // 나의 위시리스트 조회 api
     @GetMapping("")
     public ResponseEntity<WishDto.WishGetMyListResponseDto> getMyWishes(@RequestParam("price-range") int priceRange, @AuthUser User user){
-        WishDto.WishGetMyListResponseDto wishGetMyListResponseDto = wishService.getMyList(user);
+        WishDto.WishGetMyListResponseDto wishGetMyListResponseDto = wishService.getMyList(user, priceRange);
         return ResponseEntity.ok(wishGetMyListResponseDto);
     }
 
