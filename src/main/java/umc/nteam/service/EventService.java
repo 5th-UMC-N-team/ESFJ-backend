@@ -16,6 +16,11 @@ public class EventService {
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
 
+    public List<Event> findAllByUserId(Long userId) {
+        User user = userRepository.findById(userId).get();
+        return eventRepository.findAllByUser(user);
+    }
+
     public List<Event> findAllByUserAndMonth(User user, int year, int month) {
         return eventRepository.findAllByUserAndMonth(user, year, month);
     }

@@ -15,4 +15,14 @@ public class EventConverter {
         ).toList();
         return new EventDto.MonthlyEventResponseDto(eventListDto);
     }
+
+    public EventDto.FriendEventListDto toFriendEventListDto(Long friendId, List<Event> eventList) {
+        List<EventDto.EventListDto> eventListDto = eventList.stream().map(event -> EventDto.EventListDto.builder()
+                .name(event.getName())
+                .date(event.getDate())
+                .eventId(event.getId())
+                .build()
+        ).toList();
+        return new EventDto.FriendEventListDto(friendId, eventListDto);
+    }
 }
