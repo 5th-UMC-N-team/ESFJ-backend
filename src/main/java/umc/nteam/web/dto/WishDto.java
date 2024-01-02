@@ -46,13 +46,15 @@ public class WishDto {
     }
 
     @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class WishAddRequestDto {
         String name;
         int price;
         String reason;
         String link;
-        String imageUrl;
-        FundStatus fundStatus;  // 모금 선택 여부
+        FundWishStatus fundWishStatus;  // 모금 선택 여부
     }
 
     @Getter

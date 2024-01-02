@@ -23,7 +23,7 @@ spring:
 cloud:
   aws:
     s3:
-      bucket: esfj.com
+      bucket: esfj
     stack:
       auto: false
     region:
