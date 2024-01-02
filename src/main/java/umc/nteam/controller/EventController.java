@@ -1,5 +1,7 @@
 package umc.nteam.controller;
 
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +10,6 @@ import umc.nteam.converter.EventConverter;
 import umc.nteam.domain.Event;
 import umc.nteam.domain.User;
 import umc.nteam.dto.EventDto;
-import umc.nteam.dto.SuccessDto;
 import umc.nteam.service.EventService;
 
 import java.util.List;
@@ -27,6 +28,10 @@ public class EventController {
     }
 
     @GetMapping("/")
+    @Parameters({
+        @Parameter(name = "year", description = "이벤트를 확인할 년도"),
+        @Parameter(name = "month", description = "이벤트를 확인할 월")
+    })
     public ResponseEntity<EventDto.MonthlyEventResponseDto> showEventListByMonth(@RequestParam("year") int year, @RequestParam("month") int month, @AuthUser User user) {
         List<Event> eventList = eventService.findAllByUserAndMonth(user, year, month);
         EventDto.MonthlyEventResponseDto body = new EventConverter().toMonthlyEventResponseDto(eventList);

@@ -1,5 +1,6 @@
 package umc.nteam.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,9 @@ public class UserDto {
 
     @Getter
     public static class UserRegisterRequestDto {
+        @Schema(description = "로그인할 이름. DB 상에서 고유하다.")
         String name;
+        @Schema(description = "비밀번호")
         String password;
     }
 

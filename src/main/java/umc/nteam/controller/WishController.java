@@ -1,5 +1,7 @@
 package umc.nteam.controller;
 
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -39,14 +41,21 @@ public class WishController {
 
     // 위시 추가 api
     @PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    @Parameters({
+        @Parameter(name = "name", description = "상품의 이름"),
+        @Parameter(name = "price", description = "상품의 가격"),
+        @Parameter(name = "reason", description = "상품을 원하는 이유"),
+        @Parameter(name = "link", description = "상품 구매처 링크"),
+        @Parameter(name = "fundWishStatus", description = "!!TRUE 혹은 FALSE만 입력해주세요!! 모금 받을지 여부")
+    })
     public ResponseEntity<SuccessDto> addWish(
         @AuthUser User user,
         @RequestPart(value = "file", required = false) MultipartFile file,
-        @RequestParam String name,
-        @RequestParam int price,
-        @RequestParam String reason,
-        @RequestParam String link,
-        @RequestParam String fundWishStatus) throws IOException {
+        @RequestParam(name = "name") String name,
+        @RequestParam(name = "price") int price,
+        @RequestParam(name = "reason") String reason,
+        @RequestParam(name = "link") String link,
+        @RequestParam(name = "fundWithStatus") String fundWishStatus) throws IOException {
 
         WishAddRequestDto requestDto = WishAddRequestDto.builder()
             .name(name)
