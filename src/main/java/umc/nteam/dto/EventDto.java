@@ -10,24 +10,6 @@ import java.util.List;
 
 public class EventDto {
 
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class EventCreateDto {
-        private LocalDate date;
-        private String name;
-    }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class EventUpdateDto {
-        private LocalDate date;
-        private String name;
-    }
-
     @Getter
     @Builder
     @NoArgsConstructor

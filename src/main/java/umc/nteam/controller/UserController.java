@@ -47,9 +47,4 @@ public class UserController {
 
         return ResponseEntity.ok(userCardListDto);
     }
-
-    @DeleteMapping("/users/{friendId}")
-    public ResponseEntity<SuccessDto> deleteFriend(@PathVariable Long friendId) {
-        return ResponseEntity.ok(null);
-    }
 }
