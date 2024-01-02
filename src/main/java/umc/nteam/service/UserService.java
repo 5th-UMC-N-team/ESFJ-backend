@@ -74,8 +74,7 @@ public class UserService {
 
 
     public List<User> showFriendList(User user) {
-        System.out.println("!!!!!!" + user.getName());
-        System.out.println("!!!!!!!!!!" + user.getFriendList());
-        return user.getFriendList();
+        List<User> friendList = user.getFriendList();
+        return friendList;
     }
 }

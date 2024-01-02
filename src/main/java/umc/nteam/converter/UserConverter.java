@@ -12,7 +12,8 @@ public class UserConverter {
                 .map(UserConverter::toUserCardDto)
                 .collect(Collectors.toList());
 
-        return new UserDto.UserCardListDto(userCardDtos);
+        UserDto.UserCardListDto userCardListDto = new UserDto.UserCardListDto(userCardDtos);
+        return userCardListDto;
     }
 
     public static UserDto.UserCardDto toUserCardDto(User user) {
