@@ -30,6 +30,8 @@ public class Wish {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+    private String imageUrl;
+    private String name;
     private String reason;
     private String link;
     @Enumerated(value = EnumType.STRING)
