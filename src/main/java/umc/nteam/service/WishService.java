@@ -13,5 +13,9 @@ import java.util.List;
 
 public interface WishService {
 
+    // 내 위시리스트 조회 api
     WishDto.WishGetMyListResponseDto getMyList(User user, int priceRange);
+
+    // 선택한 친구의 위시리스트 조회 api
+    WishDto.WishGetFriendListResponseDto getFriendList(Long friendId, int priceRange);
 }
