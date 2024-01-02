@@ -10,7 +10,7 @@ public class UserDto {
 
     @Getter
     public static class UserLoginRequestDto {
-        String id;
+        String name;
         String password;
     }
 
@@ -26,7 +26,7 @@ public class UserDto {
 
     @Getter
     public static class UserRegisterRequestDto {
-        String id;
+        String name;
         String password;
     }
 
@@ -35,8 +35,7 @@ public class UserDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class UserRegisterResponseDto {
-        String id;
-        String password;
+        String name;
     }
 
     ///////////////
