@@ -3,7 +3,10 @@ package umc.nteam.web.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import umc.nteam.auth.AuthUser;
+import umc.nteam.domain.User;
 import umc.nteam.dto.SuccessDto;
+import umc.nteam.service.WishService;
 import umc.nteam.web.dto.WishDto;
 
 @RestController
@@ -11,10 +14,13 @@ import umc.nteam.web.dto.WishDto;
 @RequestMapping("/wishes")
 public class WishController {
 
+    private final WishService wishService;
+
     // 나의 위시리스트 조회 api
     @GetMapping("")
-    public ResponseEntity<WishDto.WishGetMyListResponseDto> getMyWishes(@RequestParam("price-range") int priceRange){
-        return ResponseEntity.ok(null);
+    public ResponseEntity<WishDto.WishGetMyListResponseDto> getMyWishes(@RequestParam("price-range") int priceRange, @AuthUser User user){
+        WishDto.WishGetMyListResponseDto wishGetMyListResponseDto = wishService.getMyList(user);
+        return ResponseEntity.ok(wishGetMyListResponseDto);
     }
 
     // 친구의 위시리스트 조회 api
