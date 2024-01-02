@@ -58,7 +58,7 @@ public class UserDto {
 
     @Getter
     public static class FriendAddRequestDto {
-        String id;
+        Long id;
     }
 
 }

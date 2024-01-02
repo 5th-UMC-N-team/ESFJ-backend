@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 import umc.nteam.domain.enums.FundStatus;
 import umc.nteam.domain.enums.FundWishStatus;
 
@@ -51,8 +52,8 @@ public class WishDto {
         int price;
         String reason;
         String link;
-        String imageUrl;
-        FundStatus fundStatus;  // 모금 선택 여부
+        MultipartFile image;
+        FundWishStatus fundWishStatus;  // 모금 선택 여부
     }
 
     @Getter
