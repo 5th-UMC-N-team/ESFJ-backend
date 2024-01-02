@@ -18,4 +18,7 @@ public interface WishService {
 
     // 선택한 친구의 위시리스트 조회 api
     WishDto.WishGetFriendListResponseDto getFriendList(Long friendId, int priceRange);
+
+    // 선택한 위시의 모금현황 조회 api
+    public WishDto.WishGetDetailResponseDto getDetail(Long wishId);
 }
