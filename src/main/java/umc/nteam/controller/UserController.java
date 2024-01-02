@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserController {
 
+
     @PostMapping("/auth/register")
     public ResponseEntity registryUser() {
         return ResponseEntity.ok(null);
